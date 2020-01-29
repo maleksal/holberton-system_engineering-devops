@@ -1,2 +1,2 @@
 #!/bin/bash
-echo -e $(ls -mva)"\n"
+echo -e $(ls -pmva)"\n"
