@@ -1,2 +1,2 @@
 #!/bin/bash
-sort -t 0
+cut -d ":" -f1,6 | sort -t 0
