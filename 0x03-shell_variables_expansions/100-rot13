@@ -1,2 +1,2 @@
 #!/bin/bah
-tr 'A-Za-z' 'N-ZA-Mn-za-m' | cat
+tr 'A-Za-z' 'N-ZA-Mn-za-m'
