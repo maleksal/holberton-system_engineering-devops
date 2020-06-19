@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # display hours
 
-n=1
+n=0
 i=1
 
 while [ $n -le 12 ]
