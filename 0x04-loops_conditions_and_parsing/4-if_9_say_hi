@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+# print string 10 times and the 9th line print 'Hi' using while loop
+
+n=1
+
+while [ $n -le 10 ]
+do
+	echo "Holberton School"
+	if [ $n == 9 ]
+	then
+		echo "Hi"
+	fi
+	n=$((n+1))
+done
