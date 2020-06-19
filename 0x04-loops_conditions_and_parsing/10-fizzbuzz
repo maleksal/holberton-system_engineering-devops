@@ -10,5 +10,5 @@ for num in range(1, 100 + 1):
 		result += "Buzz"
 	elif result == "":
 		result = num
-	print("{}".format(result), end=" ")
+	print("{}".format(result))
 END
