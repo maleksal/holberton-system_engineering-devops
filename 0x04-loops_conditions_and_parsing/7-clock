@@ -6,7 +6,7 @@ i=1
 
 while [ $n -le 12 ]
 do
-	echo "Hour $n"
+	echo "Hour: $n"
 	while [ $i -lt 60 ]
 	do
 			echo "$i"
