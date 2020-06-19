@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+# print string 10 times using until loop
+
+n=1
+
+until [ $n -gt 10 ]
+do
+	echo "Holberton School"
+	n=$((n+1))
+done
