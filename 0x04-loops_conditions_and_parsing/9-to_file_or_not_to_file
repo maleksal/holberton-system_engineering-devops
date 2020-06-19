@@ -3,17 +3,17 @@
 
 if [ -e holbertonschool ]
 then
-    printf "holbertonschool file exists"
+    printf "holbertonschool file exists\n"
     if [ -s holbertonschool ]
     then
-        printf "holbertonschool file is not empty"
+        printf "holbertonschool file is not empty\n"
     else
-        printf "holbertonschool file is empty"
+        printf "holbertonschool file is empty\n"
     fi
     if [ -f holbertonschool ]
     then
-        printf "holbertonschool is a regular file"
+        printf "holbertonschool is a regular file\n"
     fi
 else
-    printf "holbertonschool file does not exist"
+    printf "holbertonschool file does not exist\n"
 fi
