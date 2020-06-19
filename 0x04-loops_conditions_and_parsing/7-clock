@@ -7,7 +7,7 @@ e=0
 
 while [ $n -le 12 ]
 do
-	echo "Hour $e"
+	echo "Hour $n"
 	while [ $i -lt 60 ]
 	do
 			echo "$i"
@@ -15,5 +15,4 @@ do
 	done
 	i=1
 	let "n++"
-	let "e++"
 done
