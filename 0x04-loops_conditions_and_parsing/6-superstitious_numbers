@@ -1,12 +1,12 @@
 #!/usr/bin/env bash
-# loops from 1 to 10 and:
-#       displays bad luck for the 4th loop iteration
-#       displays good luck for the 8th loop iteration
-#       displays Holberton School for the other iterations
+# loops from 1 to 20 and:
+#       displays 4 and then bad luck from China for the 4th loop iteration
+#	displays 9 and then bad luck from Japan for the 9th loop iteration
+#	displays 17 and then bad luck from Italy for the 17th loop iteration
 
 n=1
 
-while [ $n -le 10 ]
+while [ $n -le 20 ]
 do
 	case $n in
 		"4") printf "%s\n" "$n" "bad luck from China";;
