@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+# loops from 1 to 10 and:
+#       displays bad luck for the 4th loop iteration
+#       displays good luck for the 8th loop iteration
+#       displays Holberton School for the other iterations
+
+n=1
+
+while [ $n -le 10 ]
+do
+	case $n in
+		"4") printf "%s\n" "$n" "bad luck from China";;
+		"9") printf "%s\n" "$n" "bad luck from Japan";;
+		"17") printf "%s\n" "$n" "bad luck from Italy";;
+		*) printf "%s\n" "$n";;
+	esac
+
+	n=$((n+1))
+done
