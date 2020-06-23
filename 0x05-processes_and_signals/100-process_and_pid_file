@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # Display string
 
-echo $$ > /var/run/holbertonscript.pid 
+echo $$ > sudo /var/run/holbertonscript.pid 
 
 trap "echo Y U no love me?!" SIGINT
 trap "func" SIGQUIT SIGTERM
