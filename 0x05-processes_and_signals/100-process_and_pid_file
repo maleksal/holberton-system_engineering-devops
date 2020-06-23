@@ -11,9 +11,8 @@ func()
 	if [ -e "/var/run/holbertonscript.pid" ]
 	then
 		rm /var/run/holbertonscript.pid
-	else
-		echo "I hate the kill command"
 	fi
+	echo "I hate the kill command"
 }
 
 while :
