@@ -1,9 +1,8 @@
 #!/usr/bin/env bash
 # Display string
-python3 <<END
 
-from time import sleep
-while True:
-	print("To infinity and beyond indefinitely")
-	sleep(2)
-END
+while :
+do
+	printf "To infinity and beyond\n"
+	sleep 2
+done
