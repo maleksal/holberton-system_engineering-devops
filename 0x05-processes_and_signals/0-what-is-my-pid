@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+# displays it's own PID
+echo $BASHPID
