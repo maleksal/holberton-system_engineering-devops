@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+# kill process using pkill
+pkill -f --signal 9 ./7-highlander
