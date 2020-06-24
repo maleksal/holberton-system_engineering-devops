@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+# print string 10 times using until loop
+
+python3 << END
+
+with open("/etc/passwd", "r") as f:
+	content = f.readlines()
+
+for i in content:
+	line = i.split(':')
+	print("{}:{}:{}".format(line[0], line[2], line[5]))
+END
