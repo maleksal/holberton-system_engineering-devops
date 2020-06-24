@@ -8,7 +8,7 @@ with open("/etc/passwd", "r") as f:
 i = 0
 while i < len(content):
 	line = content[i].split(':')
-	lss = "The user {} is part of the {} gang, lives in {} and rides {}. {}'s place is protected by the passcode {}, more info about the user here: {}".format(line[0], line[3], line[5], line[6].strip('\n'), line[3], line[1], line[4])
+	lss = "The user {} is part of the {} gang, lives in {} and rides {}. {}'s place is protected by the passcode {}, more info about the user here: {}".format(line[0].strip('\n'), line[3].strip('\n'), line[5].strip('\n'), line[6].strip('\n'), line[3].strip('\n'), line[1].strip('\n'), line[4].strip('\n'))
 	print(lss)
 	i += 1
 END
