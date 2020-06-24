@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+# print string 10 times using until loop
+
+python3 << END
+
+with open("/etc/passwd", "r") as f:
+	content = f.readlines()
+i = 0
+while i < len(content):
+	line = content[i].split(':')
+	lss = "The user {} is part of the {} gang, lives in {} and rides {}. {}'s place is protected by the passcode {}, more info about the user here: {}".format(line[0], line[2], line[5], line[6].strip('\n'), line[3], line[1], line[0])
+	print(lss)
+	i += 1
+END
