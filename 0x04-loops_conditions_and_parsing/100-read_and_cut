@@ -12,8 +12,9 @@ python3 << END
 
 with open("/etc/passwd", "r") as f:
 	content = f.readlines()
-
-for i in content:
-	line = i.split(':')
+i = 0
+while i < len(content):
+	line = content[i].split(':')
 	print("{}:{}:{}".format(line[0], line[2], line[5]))
+	i += 1
 END
