@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+# Fix nginx server
+service nginx stop
+cat /etc/nginx/sites-available/default > /etc/nginx/sites-enabled/default
