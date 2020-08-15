@@ -1,4 +1,4 @@
 #!/usr/bin/env bash
 # Fix nginx server
-rm -rf /etc/nginx/sites-enabled/* && ln -s /etc/nginx/sites-available/default /etc/nginx/sites-enabled/                                  
+cat /etc/nginx/sites-available/default > /etc/nginx/sites-enabled/default
 service nginx restart
