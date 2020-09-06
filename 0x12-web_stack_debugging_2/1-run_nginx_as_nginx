@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 # change user
-pkill nginx && pkill apache2
+pkill apache2
 chown nginx:nginx /etc/nginx/nginx.conf
-chmod 600 /etc/nginx/nginx.conf
-sed -i "/^#user.*/c\user nginx;" /etc/nginx/nginx.conf
+chmod 744 /etc/nginx/nginx.conf
+sed -i "s/user www-data/#user www-data\nuser nginx/" /etc/nginx/nginx.conf
 sed -i "s/80/8080/g" /etc/nginx/sites-available/default
 sudo -u nginx service nginx start
