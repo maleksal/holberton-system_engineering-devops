@@ -33,7 +33,7 @@ def request_from_api(_id):
                                                         completed_t,
                                                         all_t))
     for i in titels:
-        print('\t{}'.format(i))
+        print('\t {}'.format(i))
 
 
 if __name__ == '__main__':
