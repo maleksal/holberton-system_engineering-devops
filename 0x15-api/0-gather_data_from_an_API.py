@@ -32,7 +32,8 @@ def request_from_api(_id):
         'Employee {} is done with tasks({}/{}):'.format(employee_name,
                                                         completed_t,
                                                         all_t))
-    [print('\t' + i) for i in titels]
+    for i in titels:
+        print('\t{}'.format(i))
 
 
 if __name__ == '__main__':
