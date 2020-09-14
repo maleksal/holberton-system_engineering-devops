@@ -16,7 +16,7 @@ def request_from_api(_id):
     """
     # get employee name
     employee_name = requests.get(
-        'https://jsonplaceholder.typicode.com/users/' + _id).json()['name']
+        'https://jsonplaceholder.typicode.com/users/' + _id).json()['username']
 
     # get employee info
     info = requests.get(
