@@ -27,7 +27,7 @@ def request_from_api(_id):
         if el.get("completed"):
             titels.append(el.get("title"))
             completed_t += 1
-    all_t += 1
+        all_t += 1
     print(
         'Employee {} is done with tasks({}/{}):'.format(employee_name,
                                                         completed_t,
