@@ -3,9 +3,9 @@
 API module
 
 """
+import csv
 import requests
 import sys
-import csv
 
 
 def request_from_api(_id):
