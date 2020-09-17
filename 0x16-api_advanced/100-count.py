@@ -5,14 +5,13 @@ Advanced API module
 import requests
 
 
-def counter(letter, text):
+def counter(letter, text, dictionary):
     """ count letters
     """
-    count = 0
     for i in text.split():
         if letter.lower() == i.lower():
-            count += 1
-    return count
+            dictionary[letter] += 1
+    print(dictionary)
 
 
 def count_words(subreddit, word_list, dictionary={}, end=None, init=False):
@@ -31,18 +30,16 @@ def count_words(subreddit, word_list, dictionary={}, end=None, init=False):
         )
     if request_info.status_code == 404:
         return None
-    try:
-        hottest = request_info.json().get("data").get("children")
-    except:
-        return
+    hottest = request_info.json().get("data").get("children")
+
+    # initialize dictionary
+    if not init:
+        for k in word_list:
+            dictionary[k] = 0
+    init = True
     for i in hottest:
         for e in word_list:
-            if not init:
-                dictionary[e] = counter(e, i.get("data").get("title"))
-            else:
-                len_ = dictionary[e] + counter(e, i.get("data").get("title"))
-                dictionary[e] = len_
-    init = True
+            counter(e, i.get("data").get("title"), dictionary)
     # check for exit
     heckya = request_info.json().get("data").get("after")
     if not heckya:
