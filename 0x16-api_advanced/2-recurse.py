@@ -25,8 +25,6 @@ def recurse(subreddit, hot_list=[], end=None):
     hottest = request_info.json().get("data").get("children")
     for i in hottest:
         hot_list.append(i.get("data").get("title"))
-        _end = i.get('data').get('after')
-
     heckya = request_info.json().get("data").get("after")
     if not heckya:
         return hot_list
