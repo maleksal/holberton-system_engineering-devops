@@ -20,7 +20,7 @@ def number_of_subscribers(subreddit):
         headers=headers)
     if get_subredd.status_code == 404:
         return 0
-    return get_subredd.json().get("subscribers")
+    return get_subredd.json()..get("data").get("subscribers")
 
 
 if __name__ == "__main__":
