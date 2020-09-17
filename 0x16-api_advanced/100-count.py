@@ -3,6 +3,7 @@
 Advanced API module
 
 """
+from collections import OrderedDict
 import requests
 
 
@@ -31,9 +32,11 @@ def count_words(subreddit, word_list, dictionary={}, end=None, init=False):
         allow_redirects=False,
         )
     if request_info.status_code == 404:
-        return None
-    hottest = request_info.json().get("data").get("children")
-
+        return print()
+    try:
+        hottest = request_info.json().get("data").get("children")
+    except Exception:
+        return print()
     for i in hottest:
         for e in word_list:
             if not init:
@@ -45,16 +48,16 @@ def count_words(subreddit, word_list, dictionary={}, end=None, init=False):
     # check for exit
     heckya = request_info.json().get("data").get("after")
     if not heckya:
-        if len(set(list(dictionary.values()))) <= 1:
-            sorted_list = sorted(list(dictionary.items()))
+        sorted_dict = OrderedDict(sorted(
+                                    dictionary.items(),
+                                    key=lambda x: x[1],
+                                    reverse=True))
+        if len(sorted_dict) != 0:
+            for key, val in sorted_dict.items():
+                if val != 0:
+                    print("{}: {}".format(key, val))
         else:
-            sorted_list = sorted(
-                            dictionary.items(),
-                            key=lambda x: x[1],
-                            reverse=True)
-        for key, val in sorted_list:
-            if val != 0:
-                print("{}: {}".format(key, val))
+            print()
         return
     return count_words(subreddit, word_list, dictionary, heckya, init)
 
