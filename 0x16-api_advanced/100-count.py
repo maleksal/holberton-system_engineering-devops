@@ -30,8 +30,10 @@ def count_words(subreddit, word_list, dictionary={}, end=None, init=False):
         )
     if request_info.status_code == 404:
         return None
-    hottest = request_info.json().get("data").get("children")
-
+    try:
+        hottest = request_info.json().get("data").get("children")
+    except:
+        return
     # initialize dictionary
     if not init:
         for k in word_list:
