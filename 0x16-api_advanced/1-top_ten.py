@@ -15,7 +15,7 @@ def top_ten(subreddit):
         "User-Agent": "Ubuntu:playing with API (by /u/Cyber)"}
     # get sub-reddit info
     request_info = requests.get(
-        main_url + '/r/{}/hot.json'.format(subreddit),
+        main_url + '/r/{}/hot.json?limit=10'.format(subreddit),
         headers=headers,
         allow_redirects=False,
         )
