@@ -46,6 +46,9 @@ def count_words(subreddit, word_list, dictionary={}, end=None, init=False):
     # check for exit
     heckya = request_info.json().get("data").get("after")
     if not heckya:
+        if len(dictionary) == 0:
+            print("")
+            return
         if len(set(list(dictionary.values()))) <= 1:
             sorted_list = sorted(list(dictionary.items()))
         else:
