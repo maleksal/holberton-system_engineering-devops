@@ -27,7 +27,7 @@ def recurse(subreddit, hot_list=[], end=None):
     for i in hottest:
         hot_list.append(i.get("data").get("title"))
         _end = i.get('data').get('after')
-        if _end:
+        if not _end:
             return hot_list
         return recurse(subreddit, hot_list, _end)
 if __name__ == "__main__":
