@@ -17,25 +17,20 @@ def count_words(subreddit, word_list, dictionary={}, end=None, init=False):
     """ prints the titles of the first 10 hot posts
     """
 
-    main_url = "https://www.reddit.com/r"
+    main_url = "https://www.reddit.com"
     # set header
     headers = {
         "User-Agent": "Ubuntu:playing with API (by /u/Cyber)"}
     # get sub-reddit info
     request_info = requests.get(
-        main_url + '/{}/hot.json?after={}'.format(subreddit, end),
+        main_url + '/r/{}/hot.json?after={}'.format(subreddit, end),
         headers=headers,
         allow_redirects=False,
         )
-
-    try:
-        if request_info.status_code == 404:
-            raise Exception
-        hottest = request_info.json().get("data").get("children")
-    except Exception:
-        print("")
+    if request_info.status_code == 404:
         return
-    
+    hottest = request_info.json().get("data").get("children")
+
     # initialize dictionary
     if not init:
         for k in word_list:
@@ -47,9 +42,6 @@ def count_words(subreddit, word_list, dictionary={}, end=None, init=False):
     # check for exit
     heckya = request_info.json().get("data").get("after")
     if not heckya:
-        #if len(dictionary) == 0:
-        #    print("")
-        #    return
         if len(set(list(dictionary.values()))) <= 1:
             sorted_list = sorted(list(dictionary.items()))
         else:
