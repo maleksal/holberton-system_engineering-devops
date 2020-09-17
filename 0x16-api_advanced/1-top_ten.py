@@ -20,7 +20,7 @@ def top_ten(subreddit):
         allow_redirects=False,
         )
     if request_info.status_code == 404:
-        print(None)
+        return print(None)
     hottest = request_info.json().get("data").get("children")
     [print(child.get("data").get("title")) for child in hottest]
 
