@@ -18,19 +18,20 @@ def count_words(subreddit, word_list, dictionary={}, end=None, init=False):
     """ prints the titles of the first 10 hot posts
     """
 
-    main_url = "https://www.reddit.com"
+    main_url = "https://www.reddit.com/r"
     # set header
     headers = {
         "User-Agent": "Ubuntu:playing with API (by /u/Cyber)"}
     # get sub-reddit info
     request_info = requests.get(
-        main_url + '/r/{}/hot.json?after={}'.format(subreddit, end),
+        main_url + '/{}/hot.json?after={}'.format(subreddit, end),
         headers=headers,
         allow_redirects=False,
         )
-    if request_info.status_code == 404:
-        return None
+
     try:
+        if request_info.status_code == 404:
+            return print("")
         hottest = request_info.json().get("data").get("children")
     except:
         print("")
