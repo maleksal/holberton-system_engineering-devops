@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """
- Advanced API module
+Advanced API module
 
 """
 import requests
