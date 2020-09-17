@@ -35,31 +35,32 @@ def count_words(subreddit, word_list, dictionary={}, end=None, init=False):
         return print()
     try:
         hottest = request_info.json().get("data").get("children")
-    except Exception:
-        return print()
-    for i in hottest:
-        for e in word_list:
-            if not init:
-                dictionary[e] = counter(e, i.get("data").get("title"))
+
+        for i in hottest:
+            for e in word_list:
+                if not init:
+                    dictionary[e] = counter(e, i.get("data").get("title"))
+                else:
+                    len_ = dictionary[e] + counter(e, i.get("data").get("title"))
+                    dictionary[e] = len_
+        init = True
+        # check for exit
+        heckya = request_info.json().get("data").get("after")
+        if not heckya:
+            sorted_dict = OrderedDict(sorted(
+                                        dictionary.items(),
+                                        key=lambda x: x[1],
+                                        reverse=True))
+            if len(sorted_dict) != 0:
+                for key, val in sorted_dict.items():
+                    if val != 0:
+                        print("{}: {}".format(key, val))
             else:
-                len_ = dictionary[e] + counter(e, i.get("data").get("title"))
-                dictionary[e] = len_
-    init = True
-    # check for exit
-    heckya = request_info.json().get("data").get("after")
-    if not heckya:
-        sorted_dict = OrderedDict(sorted(
-                                    dictionary.items(),
-                                    key=lambda x: x[1],
-                                    reverse=True))
-        if len(sorted_dict) != 0:
-            for key, val in sorted_dict.items():
-                if val != 0:
-                    print("{}: {}".format(key, val))
-        else:
-            print()
-        return
-    return count_words(subreddit, word_list, dictionary, heckya, init)
+                print()
+            return
+        return count_words(subreddit, word_list, dictionary, heckya, init)
+    except Exception:
+        pass
 
 
 if __name__ == "__main__":
