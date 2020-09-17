@@ -33,6 +33,7 @@ def count_words(subreddit, word_list, dictionary={}, end=None, init=False):
     try:
         hottest = request_info.json().get("data").get("children")
     except:
+        print("")
         return
     # initialize dictionary
     if not init:
