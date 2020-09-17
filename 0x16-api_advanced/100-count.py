@@ -11,7 +11,6 @@ def counter(letter, text, dictionary):
     for i in text.split():
         if letter.lower() == i.lower():
             dictionary[letter] += 1
-    print(dictionary)
 
 
 def count_words(subreddit, word_list, dictionary={}, end=None, init=False):
@@ -31,11 +30,12 @@ def count_words(subreddit, word_list, dictionary={}, end=None, init=False):
 
     try:
         if request_info.status_code == 404:
-            return print("")
+            raise Exception
         hottest = request_info.json().get("data").get("children")
-    except:
+    except Exception:
         print("")
         return
+    
     # initialize dictionary
     if not init:
         for k in word_list:
