@@ -15,9 +15,10 @@ def number_of_subscribers(subreddit):
         "User-Agent": "Ubuntu:playing with API (by /u/Cyber)"}
     # get sub-reddit info
     get_subredd = requests.get(
-        main_url + '/{}/about.json'.format(subreddit),
+        main_url + '/r/{}/about.json'.format(subreddit),
+        headers=headers,
         allow_redirects=False,
-        headers=headers)
+        )
     if get_subredd.status_code == 404:
         return 0
     return get_subredd.json().get("data").get("subscribers")
