@@ -6,7 +6,7 @@ Advanced API module
 import requests
 
 
-def recurse(subreddit, hot_list=[], counter=0):
+def recurse(subreddit, hot_list=[], end=None):
     """ prints the titles of the first 10 hot posts
     """
 
@@ -20,15 +20,15 @@ def recurse(subreddit, hot_list=[], counter=0):
         headers=headers,
         allow_redirects=False,
         )
+    print(len(hot_list))
     if request_info.status_code == 404:
         return None
     hottest = request_info.json().get("data").get("children")
-    if len(hot_list) == len(hottest):
-        return hot_list
-    hold_from_hottest = hottest[counter].get("data").get("title")
-    hot_list.append(hold_from_hottest)
-    counter += 1
-    return recurse(subreddit, hot_list, counter)
-
+    for i in hottest:
+        hot_list.append(i.get("data").get("title"))
+        _end = i.get('data').get('after')
+        if _end:
+            return hot_list
+        return recurse(subreddit, hot_list, _end)
 if __name__ == "__main__":
     number_of_subscribers()
