@@ -49,7 +49,7 @@ def count_words(subreddit, word_list, dictionary={}, end=None, init=False):
     if not heckya:
         #if len(dictionary) == 0:
         #    print("")
-            return
+        #    return
         if len(set(list(dictionary.values()))) <= 1:
             sorted_list = sorted(list(dictionary.items()))
         else:
