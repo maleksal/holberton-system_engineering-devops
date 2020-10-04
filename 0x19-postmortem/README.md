@@ -1,4 +1,5 @@
 # Postmortem
+![](https://pbs.twimg.com/media/B2wjqOyCUAAQ5-f.jpg)
 ## Issue Summary:
 On 1/1/17 at 4:10 pm, a startup lanched their new feature on their wordpress platform and they did all the marketing and expected a larger increase in profit after users pay for this features, But after 3 min from lunching the website service was totaly down for 17 min. The root cause was a typographical error in wordpress-setting file in wich the word 'php' typed as 'phpp', This outrage affected a lot of users and the the buissness company itself.
 
