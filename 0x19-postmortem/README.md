@@ -17,9 +17,8 @@ On 1/1/17 at 4:10 pm, a startup lanched their new feature on their wordpress pla
 
 **5:30 pm:** Eveything deployed an works fine.
 
-## Root cause and resolution:
+## Root cause && resolution:
 The root cause was  a typographical error in the word '.php' in the wp-settings.php file. The error caused a 100% outage cause the error stoped all services and prevented content from being served. 
 
-![I see you test your code in production. I too like to live dangerously.(meme)](http://virtser.net/images/test_automation.jpg)
-## Corrective and preventative measures:
+## preventative measures:
 In order to prevent outages like this in the feature the comany should set up an isolated docker containers for testing purposes before deployment.
