@@ -5,7 +5,7 @@ exec { 'fix':
   path    => '/bin/',
 }
 
-exec { 'restart nginx server':
+-> exec { 'restart nginx server':
   command => 'servide nginx restart',
   path    => '/etc/init.d/',
 }
