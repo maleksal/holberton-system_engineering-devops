@@ -1,0 +1,4 @@
+
+#!/usr/bin/env bash
+# this script kills a gunicorn server
+pkill -HUP gunicorn
